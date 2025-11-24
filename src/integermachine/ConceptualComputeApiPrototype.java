@@ -23,9 +23,15 @@ public class ConceptualComputeApiPrototype implements ConceptualComputeApi {
     }
 
     private boolean isPrime(int x) {
-        if (x < 2) return false;
-        if (x == 2) return true;
-        if (x % 2 == 0) return false;
+        if (x < 2) {
+        	return false;
+        }
+        if (x == 2) {
+        	return true;
+        }
+        if (x % 2 == 0) {
+        	return false;
+        }
 
         int limit = (int) Math.sqrt(x);
         for (int d = 3; d <= limit; d += 2) {
