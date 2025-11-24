@@ -17,6 +17,7 @@ sourceSets {
 	 }
 }
 
+
 repositories {
     mavenCentral()
 }
@@ -34,6 +35,8 @@ test {
 
     // Checkpoint 3: temporarily exclude tests that are expected to fail
     filter {
+    
+    
         excludeTestsMatching "integermachine.TestUserJobApi"
         excludeTestsMatching "integermachine.TestConceptualComputeApi"
         excludeTestsMatching "integermachine.ComputeEngineIntegrationTest"
