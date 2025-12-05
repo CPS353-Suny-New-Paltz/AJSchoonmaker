@@ -10,8 +10,7 @@ public class UserJobApiImpl implements UserJobApi {
 
     @Override
     public String submitJob(JobConfig config) {
-        // Checkpoint 3: empty implementation, just return a default.
-        // We are NOT calling orchestrator yet.
-        return "";
+        orchestrator.runJob(config);
+        return "OK";
     }
 }
