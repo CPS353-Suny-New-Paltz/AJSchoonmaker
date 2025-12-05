@@ -22,13 +22,22 @@ repositories {
 }
 
 dependencies {
+dependencies {
+    // JUnit
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // Mockito
     testImplementation("org.mockito:mockito-core:5.10.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.10.0")
 
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // Spoon (REQUIRED for Checkpoint 3 tests)
+    testImplementation("fr.inria.gforge.spoon:spoon-core:11.2.0")
 
+    // App dependency
     implementation("com.google.code.gson:gson:2.13.1")
+}
+
 }
 
 
