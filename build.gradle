@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-dependencies {
+
     // JUnit
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -36,7 +36,6 @@ dependencies {
 
     // App dependency
     implementation("com.google.code.gson:gson:2.13.1")
-}
 
 }
 
