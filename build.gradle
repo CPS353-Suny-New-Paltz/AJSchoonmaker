@@ -2,19 +2,19 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'checkstyle'
 
-eclipse.project.name = '353Project' 
+eclipse.project.name = '353Project'
 
 sourceSets {
-	main {
-	  java {
-		srcDirs = ['src']
-	  }
-	}
-	test {
-	  java {
-	     srcDirs = ['test']
-	  }
-	 }
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
 }
 
 repositories {
@@ -22,16 +22,10 @@ repositories {
 }
 
 dependencies {
-<<<<<<< Updated upstream
     testImplementation('org.junit.jupiter:junit-jupiter:5.10.2')
-	testImplementation('org.mockito:mockito-core:5.10.0')
-	implementation('com.google.code.gson:gson:2.13.1')
-=======
-    testImplementation('org.junit.jupiter:junit-jupiter:5.10.2')    
     testImplementation('org.mockito:mockito-core:5.10.0')
     testImplementation('org.mockito:mockito-junit-jupiter:5.10.0')
     implementation('com.google.code.gson:gson:2.13.1')
->>>>>>> Stashed changes
 }
 
 test {
@@ -39,6 +33,7 @@ test {
 }
 
 checkstyle {
-	configFile = file('checkstyle_checks.xml')
-	toolVersion = '10.17.0'
+    configFile = file('checkstyle_checks.xml')
+    toolVersion = '10.17.0'
 }
+
