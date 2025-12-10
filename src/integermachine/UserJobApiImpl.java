@@ -2,7 +2,6 @@ package integermachine;
 
 public class UserJobApiImpl implements UserJobApi {
 
-   
     private final Orchestrator orchestrator;
 
     public UserJobApiImpl(Orchestrator orchestrator) {
@@ -11,8 +10,10 @@ public class UserJobApiImpl implements UserJobApi {
 
     @Override
     public String submitJob(JobConfig config) {
-        // Checkpoint 3: empty implementation, just return a default.
-        // We are NOT calling orchestrator yet.
-        return "";
+        // Must call orchestrator.runJob() to satisfy Mockito test
+        orchestrator.runJob(config);
+
+  
+        return "OK";
     }
 }
