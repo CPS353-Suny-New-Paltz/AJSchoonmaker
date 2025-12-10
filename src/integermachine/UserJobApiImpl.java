@@ -13,7 +13,7 @@ public class UserJobApiImpl implements UserJobApi {
         // Must call orchestrator.runJob() to satisfy Mockito test
         orchestrator.runJob(config);
 
-        // Since runJob returns void, we return any string
+  
         return "OK";
     }
 }
