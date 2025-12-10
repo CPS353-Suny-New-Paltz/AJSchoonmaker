@@ -10,10 +10,8 @@ public class UserJobApiImpl implements UserJobApi {
 
     @Override
     public String submitJob(JobConfig config) {
-        // Must call orchestrator.runJob() to satisfy Mockito test
-        orchestrator.runJob(config);
-
-  
-        return "OK";
+        // Checkpoint 3: empty implementation, just return a default.
+        // We are NOT calling orchestrator yet.
+        return "";
     }
 }
