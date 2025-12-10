@@ -6,7 +6,8 @@ public class StorageProcessApiPrototype {
 
     @ProcessAPIPrototype
     public void prototype(StorageProcessApi api) {
-        // Prototype call — does not run in production
-        api.store("key", "value");
+        // Dummy prototype calls — not executed, only here for Checkpoint 2
+        api.readInputs(null);            // InputSourceRef, null is fine for prototype
+        api.writeOutputs(null, null, null); // OutputSinkRef, List<KeyValueResult>, Delimiters
     }
 }
