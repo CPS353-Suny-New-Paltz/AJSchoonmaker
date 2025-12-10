@@ -1,11 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
 
-<<<<<<< HEAD
-eclipse.project.name = 'Checkpoint1Project' 
-=======
 eclipse.project.name = '353Project'
->>>>>>> 24ae7732b3e71ec4fb1130fd74f0f23116a5d66b
 
 sourceSets {
     main {
@@ -29,16 +26,15 @@ dependencies {
     testImplementation('org.mockito:mockito-core:5.10.0')
     testImplementation('org.mockito:mockito-junit-jupiter:5.10.0')
     implementation('com.google.code.gson:gson:2.13.1')
-    
-    // required for Checkpoint 3 structural tests (Spoon AST)
+
+    // Required for Checkpoint 3 structural tests
     implementation 'fr.inria.gforge.spoon:spoon-core:11.2.0'
 
-    // required for JUnit in GitHub actions
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 }
 
 test {
-    // JUnit Platform
+    // Use JUnit Platform with smoke-test filtering
     def includeSmoke = project.hasProperty('runSmoke') && project.property('runSmoke') == 'true'
 
     useJUnitPlatform {
@@ -49,15 +45,8 @@ test {
         }
     }
 }
-<<<<<<< HEAD
-=======
-
-
-
 
 checkstyle {
     configFile = file('checkstyle_checks.xml')
     toolVersion = '10.17.0'
 }
-
->>>>>>> 24ae7732b3e71ec4fb1130fd74f0f23116a5d66b
