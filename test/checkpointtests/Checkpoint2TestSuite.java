@@ -1,4 +1,4 @@
-package project.checkpointtests;
+package checkpointtests;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -97,8 +97,7 @@ public class Checkpoint2TestSuite {
 		}
 		if (!errors.isEmpty()) {
 			throw new IllegalStateException(errors.toString());
-		}
-	}
+		}	}
 
 
 }

@@ -1,4 +1,4 @@
-package project.checkpointtests;
+package checkpointtests;
 
 import java.io.File;
 import java.util.ArrayList;
