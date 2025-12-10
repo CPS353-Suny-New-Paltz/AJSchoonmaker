@@ -45,7 +45,7 @@ test {
     }
 }
 
-}
+
 
 checkstyle {
     configFile = file('checkstyle_checks.xml')
