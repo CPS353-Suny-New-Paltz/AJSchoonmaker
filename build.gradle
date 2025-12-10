@@ -2,19 +2,19 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'checkstyle'
 
-eclipse.project.name = '353Project' 
+eclipse.project.name = '353Project'
 
 sourceSets {
-	main {
-	  java {
-		srcDirs = ['src']
-	  }
-	}
-	test {
-	  java {
-	     srcDirs = ['test']
-	  }
-	 }
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
 }
 
 
@@ -48,6 +48,7 @@ test {
 
 
 checkstyle {
-	configFile = file('checkstyle_checks.xml')
-	toolVersion = '10.17.0'
+    configFile = file('checkstyle_checks.xml')
+    toolVersion = '10.17.0'
 }
+

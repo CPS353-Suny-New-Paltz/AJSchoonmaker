@@ -10,3 +10,4 @@ public class ConceptualComputeApiImpl implements ConceptualComputeApi {
         return new ComputeResult(n, 1);
     }
 }
+
