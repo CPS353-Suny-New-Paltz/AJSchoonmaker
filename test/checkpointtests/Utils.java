@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package project.checkpointtests;
+=======
+package checkpointtests;
+>>>>>>> 24ae7732b3e71ec4fb1130fd74f0f23116a5d66b
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,7 +17,11 @@ public class Utils {
         }
         return result;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 24ae7732b3e71ec4fb1130fd74f0f23116a5d66b
     public static List<Class<?>> loadAllTestClasses() throws Exception {
         File rootDir = new File("test");
         List<Class<?>> result = new ArrayList<>();

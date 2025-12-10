@@ -2,7 +2,6 @@ package integermachine;
 
 public class UserJobApiImpl implements UserJobApi {
 
-   
     private final Orchestrator orchestrator;
 
     public UserJobApiImpl(Orchestrator orchestrator) {

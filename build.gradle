@@ -1,19 +1,23 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+<<<<<<< HEAD
 eclipse.project.name = 'Checkpoint1Project' 
+=======
+eclipse.project.name = '353Project'
+>>>>>>> 24ae7732b3e71ec4fb1130fd74f0f23116a5d66b
 
 sourceSets {
-	main {
-	  java {
-		srcDirs = ['src']
-	  }
-	}
-	test {
-	  java {
-	     srcDirs = ['test']
-	  }
-	 }
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
 }
 
 repositories {
@@ -45,3 +49,15 @@ test {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+checkstyle {
+    configFile = file('checkstyle_checks.xml')
+    toolVersion = '10.17.0'
+}
+
+>>>>>>> 24ae7732b3e71ec4fb1130fd74f0f23116a5d66b
