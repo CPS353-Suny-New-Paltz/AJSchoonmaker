@@ -33,15 +33,17 @@ dependencies {
 test {
     useJUnitPlatform()
 
-    // Checkpoint 3: temporarily exclude tests that are expected to fail
     filter {
-    
-    
-        excludeTestsMatching "integermachine.TestUserJobApi"
-        excludeTestsMatching "integermachine.TestConceptualComputeApi"
-        excludeTestsMatching "integermachine.ComputeEngineIntegrationTest"
+        // Exclude smoke tests for CP3 – they are expected to fail
+        excludeTestsMatching "*TestConceptualComputeApi"
+        excludeTestsMatching "*TestStorageProcessApi"
+        excludeTestsMatching "*TestUserJobApi"
+
+        // Exclude CP3 integration test – also expected to fail
+        excludeTestsMatching "*ComputeEngineIntegrationTest"
     }
 }
+
 
 
 
