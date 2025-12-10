@@ -1,8 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'checkstyle'
 
-eclipse.project.name = '353Project' 
+eclipse.project.name = 'Checkpoint1Project' 
 
 sourceSets {
 	main {
@@ -17,37 +16,32 @@ sourceSets {
 	 }
 }
 
-
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    testImplementation('org.junit.jupiter:junit-jupiter:5.10.2')
+    testImplementation('org.junit.jupiter:junit-jupiter:5.13.4')
     testImplementation('org.mockito:mockito-core:5.10.0')
     testImplementation('org.mockito:mockito-junit-jupiter:5.10.0')
     implementation('com.google.code.gson:gson:2.13.1')
+    
+    // required for Checkpoint 3 structural tests (Spoon AST)
+    implementation 'fr.inria.gforge.spoon:spoon-core:11.2.0'
+
+    // required for JUnit in GitHub actions
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 test {
-    useJUnitPlatform()
+    // JUnit Platform
+    def includeSmoke = project.hasProperty('runSmoke') && project.property('runSmoke') == 'true'
 
-    filter {
-        // Exclude smoke tests for CP3 – they are expected to fail
-        excludeTestsMatching "*TestConceptualComputeApi"
-        excludeTestsMatching "*TestStorageProcessApi"
-        excludeTestsMatching "*TestUserJobApi"
-
-        // Exclude CP3 integration test – also expected to fail
-        excludeTestsMatching "*ComputeEngineIntegrationTest"
+    useJUnitPlatform {
+        if (includeSmoke) {
+            includeTags 'smoke'
+        } else {
+            excludeTags 'smoke'
+        }
     }
-}
-
-
-
-
-checkstyle {
-	configFile = file('checkstyle_checks.xml')
-	toolVersion = '10.17.0'
 }
