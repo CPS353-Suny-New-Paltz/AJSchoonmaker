@@ -1,15 +1,16 @@
 package integermachine;
 
-import java.util.List;
+import project.annotations.ProcessAPIPrototype;
 
-import project.annotations.ProcessAPI;
+public class StorageProcessApiPrototype {
 
-@ProcessAPI
-public interface StorageProcessApi {
+    @ProcessAPIPrototype
+    public void prototype(StorageProcessApi api) {
+        // Dummy prototype calls — not executed, only here for Checkpoint 2
+        
+        api.readInputs(null);  // InputSourceRef expected, null is fine
 
-    IntStreamBatch readInputs(InputSourceRef input);
-
-    void writeOutputs(OutputSinkRef output,
-                      List<KeyValueResult> results,
-                      Delimiters delimiters);
+        api.writeOutputs(null,  null,  null); 
+        // OutputSinkRef, List<KeyValueResult>, Delimiters — all allowed as null for prototype
+    }
 }
