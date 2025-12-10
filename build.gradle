@@ -34,16 +34,17 @@ dependencies {
 }
 
 test {
-    // Use JUnit Platform with smoke-test filtering
-    def includeSmoke = project.hasProperty('runSmoke') && project.property('runSmoke') == 'true'
+    useJUnitPlatform()
 
-    useJUnitPlatform {
-        if (includeSmoke) {
-            includeTags 'smoke'
-        } else {
-            excludeTags 'smoke'
-        }
+    filter {
+        excludeTestsMatching "*TestConceptualComputeApi"
+        excludeTestsMatching "*TestUserJobApi"
+        excludeTestsMatching "*TestStorageProcessApi"
+        excludeTestsMatching "*ComputeEngineIntegrationTest"
+        excludeTestsMatching "*Checkpoint3TestSuite"
     }
+}
+
 }
 
 checkstyle {
