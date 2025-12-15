@@ -6,28 +6,38 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-
 public class ComputeEngineIntegrationTest {
 
     @Test
     void integration_largestPrimeBelow_forSampleInput() {
-        // Input: [1, 10, 25], no delimiters specified
-        InMemoryInputConfig inputConfig = new InMemoryInputConfig(List.of(1, 10, 25));
-        InMemoryOutputConfig outputConfig = new InMemoryOutputConfig();
+        InMemoryInputConfig inputConfig =
+                new InMemoryInputConfig(List.of(1, 10, 25));
+        InMemoryOutputConfig outputConfig =
+                new InMemoryOutputConfig();
 
-        StorageProcessApi storage = new InMemoryStorageProcessApi();
-        ConceptualComputeApi compute = new ConceptualComputeApiImpl(); // empty impl for now
-        Orchestrator orchestrator = new Orchestrator(storage, compute);
+        StorageProcessApi storage =
+                new InMemoryStorageProcessApi();
 
-        JobConfig config = new JobConfig(inputConfig, outputConfig, null);
+        ConceptualComputeApi compute =
+                new ConceptualComputeApiImpl();
 
-        orchestrator.runJob(config);
+        Orchestrator orchestrator =
+                new Orchestrator(storage, compute);
 
-        // What we EXPECT once everything is implemented:
-        // 1 -> 1 (no smaller prime), 10 -> 7, 25 -> 23
+        UserJobApi networkApi =
+                new UserJobApiImpl(orchestrator);
+
+        JobConfig config =
+                new JobConfig(inputConfig, outputConfig, null);
+
+
+        networkApi.submitJob(config);
+
+
         assertEquals(
                 List.of("1:1", "10:7", "25:23"),
                 outputConfig.getOutputs()
         );
     }
 }
+
