@@ -27,7 +27,8 @@ public class Orchestrator {
             results.add(
                 new KeyValueResult(
                     r.getInput(),
-                    String.valueOf(r.getComputedValue())
+                    String.valueOf(r.getLargestPrimeBelow())
+
                 )
             );
         }
