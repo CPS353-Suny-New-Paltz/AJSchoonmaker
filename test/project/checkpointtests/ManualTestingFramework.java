@@ -1,12 +1,14 @@
 package project.checkpointtests;
 
-import integermachine.UserJobApi;
-import integermachine.UserJobApiImpl;
-import integermachine.JobConfig;
+import integermachine.ConceptualComputeApi;
+import integermachine.ConceptualComputeApiImpl;
+import integermachine.Orchestrator;
+import integermachine.StorageProcessApi;
+import integermachine.StorageProcessApiImpl;
 import integermachine.InputSourceRef;
 import integermachine.OutputSinkRef;
 import integermachine.Delimiters;
-
+import integermachine.JobConfig;
 
 public class ManualTestingFramework {
 
@@ -14,17 +16,16 @@ public class ManualTestingFramework {
     public static final String OUTPUT = "manualTestOutput.txt";
 
     public static void main(String[] args) {
-
         StorageProcessApi storage = new StorageProcessApiImpl();
         ConceptualComputeApi compute = new ConceptualComputeApiImpl();
         Orchestrator orchestrator = new Orchestrator(storage, compute);
-        UserJobApi userApi = new UserJobApiImpl(orchestrator);
 
-        InputSourceRef input = new InputSourceRef(INPUT);
-        OutputSinkRef output = new OutputSinkRef(OUTPUT);
-        Delimiters delimiters = new Delimiters(",", ":");
+        JobConfig config = new JobConfig(
+                new InputSourceRef(INPUT),
+                new OutputSinkRef(OUTPUT),
+                new Delimiters(",", ":")
+        );
 
-        JobConfig config = new JobConfig(input, output, delimiters);
-        userApi.submitJob(config);
+        orchestrator.runJob(config);
     }
 }
