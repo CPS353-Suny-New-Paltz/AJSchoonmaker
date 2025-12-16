@@ -1,24 +1,24 @@
 package integermachine;
 
 public class ComputeResult {
-    // input N and the largest prime strictly smaller than N
     private final int input;
-    private final int largestPrimeBelow;
+    private final int result;
 
-    public ComputeResult(int input, int largestPrimeBelow) {
+    public ComputeResult(int input, int result) {
         this.input = input;
-        this.largestPrimeBelow = largestPrimeBelow;
+        this.result = result;
     }
 
     public int getInput() {
         return input;
     }
 
-    public int getLargestPrimeBelow() {
-        return largestPrimeBelow;
+    public int getResult() {
+        return result;
     }
 
-    public String asText() {
-        return Integer.toString(largestPrimeBelow);
+    // REQUIRED by TestConceptualComputeApi
+    public int getLargestPrimeBelow() {
+        return result;
     }
 }
