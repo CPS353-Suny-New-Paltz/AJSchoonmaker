@@ -22,27 +22,28 @@ repositories {
 }
 
 dependencies {
-    testImplementation('org.junit.jupiter:junit-jupiter:5.13.4')
-    testImplementation('org.mockito:mockito-core:5.10.0')
-    testImplementation('org.mockito:mockito-junit-jupiter:5.10.0')
-    implementation('com.google.code.gson:gson:2.13.1')
 
-    // Required for Checkpoint 3 structural tests
-    implementation 'fr.inria.gforge.spoon:spoon-core:11.2.0'
+    // JUnit
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+    // Mockito
+    testImplementation("org.mockito:mockito-core:5.10.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.10.0")
+
+    // Spoon (Checkpoint 3)
+    implementation("fr.inria.gforge.spoon:spoon-core:11.2.0")
+    testImplementation("fr.inria.gforge.spoon:spoon-core:11.2.0")
+
+    // App dependency
+    implementation("com.google.code.gson:gson:2.13.1")
 }
+
+
 
 test {
     useJUnitPlatform()
-
-    filter {
-        excludeTestsMatching "*TestConceptualComputeApi"
-        excludeTestsMatching "*TestUserJobApi"
-        excludeTestsMatching "*TestStorageProcessApi"
-        excludeTestsMatching "*ComputeEngineIntegrationTest"
-        excludeTestsMatching "*Checkpoint3TestSuite"
-    }
+    
 }
 
 
