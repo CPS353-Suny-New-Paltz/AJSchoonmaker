@@ -20,9 +20,18 @@ public class ConceptualComputeApiImpl implements ConceptualComputeApi {
     }
 
     private boolean isPrime(int x) {
-        if (x < 2) return false;
-        if (x == 2) return true;
-        if (x % 2 == 0) return false;
+    	if (n < 2) {
+    	    return new ComputeResult(n, -1);
+    	}
+
+    	if (n == 2) {
+    	    return new ComputeResult(n, 1);
+    	}
+
+    	if (n == 3) {
+    	    return new ComputeResult(n, 2);
+    	}
+
 
         for (int d = 3; d * d <= x; d += 2) {
             if (x % d == 0) return false;

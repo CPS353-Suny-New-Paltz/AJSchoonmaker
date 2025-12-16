@@ -1,6 +1,12 @@
 package project.checkpointtests;
 
-import integermachine.*;
+import integermachine.UserJobApi;
+import integermachine.UserJobApiImpl;
+import integermachine.JobConfig;
+import integermachine.InputSourceRef;
+import integermachine.OutputSinkRef;
+import integermachine.Delimiters;
+
 
 public class ManualTestingFramework {
 
