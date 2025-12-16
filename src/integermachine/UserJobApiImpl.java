@@ -10,7 +10,17 @@ public class UserJobApiImpl implements UserJobApi {
 
     @Override
     public String submitJob(JobConfig config) {
-        orchestrator.runJob(config);
-        return "OK";
+        // Validation 
+        if (config == null) {
+            return "ERROR: null JobConfig";
+        }
+
+        try {
+            orchestrator.runJob(config);
+            return "OK";
+        } catch (Exception e) {
+            // CP5 req #2: do not allow uncaught exceptions to cross network boundary
+            return "ERROR: " + e.getClass().getSimpleName();
+        }
     }
 }
