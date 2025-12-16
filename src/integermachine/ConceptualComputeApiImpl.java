@@ -14,27 +14,24 @@ public class ConceptualComputeApiImpl implements ConceptualComputeApi {
                 return candidate;
             }
         }
-        // For inputs <= 2, there is no prime strictly below it.
-        // integration test expects 1 -> 1 (so "failure" becomes 1).
         return 1;
     }
 
     private boolean isPrime(int x) {
-    	if (n < 2) {
-    	    return new ComputeResult(n, -1);
-    	}
-
-    	if (n == 2) {
-    	    return new ComputeResult(n, 1);
-    	}
-
-    	if (n == 3) {
-    	    return new ComputeResult(n, 2);
-    	}
-
+        if (x < 2) {
+            return false;
+        }
+        if (x == 2) {
+            return true;
+        }
+        if (x % 2 == 0) {
+            return false;
+        }
 
         for (int d = 3; d * d <= x; d += 2) {
-            if (x % d == 0) return false;
+            if (x % d == 0) {
+                return false;
+            }
         }
         return true;
     }
